@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Metropolis";
+  src: url("./assets/Fonts/Metropolis/metropolis.regular.otf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Metropolis_Semi_Bold";
+  src: url("./assets/Fonts/Metropolis/metropolis.semi-bold.otf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Metropolis_Bold";
+  src: url("./assets/Fonts/Metropolis/metropolis.bold.otf") format("truetype");
+}
+@font-face {
+  font-family: "Metropolis_Extra_Bold";
+  src: url("./assets/Fonts/Metropolis/metropolis.extra-bold.otf")
+    format("truetype");
+}

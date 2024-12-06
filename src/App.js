@@ -1,11 +1,7 @@
-import "./App.css";
+import Body from "./Components/Body";
 
 function App() {
-  return (
-    <div className="text-3xl text-purple-400 border border-solid border-black">
-      Namaste bro
-    </div>
-  );
+  return <Body />;
 }
 
 export default App;
