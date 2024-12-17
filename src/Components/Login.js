@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
-import { logo } from "../utils/constants";
+import { LOGO } from "../utils/constants";
 import bgImg from "../assets/Images/netflix bg.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { signInFormValidation } from "../utils/validations";
 import {
   createUserWithEmailAndPassword,
@@ -9,6 +9,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import Header from "./Header";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -18,8 +19,6 @@ const Login = () => {
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-
-  const navigate = useNavigate();
 
   const toggleSignIn = (e) => {
     e.preventDefault();
@@ -46,7 +45,7 @@ const Login = () => {
           setIsSignInForm(true);
         }, 2000);
 
-        console.log(userCredential.user);
+        // console.log(userCredential.user);
 
         return updateProfile(auth.currentUser, {
           displayName: name,
@@ -61,7 +60,6 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Logged in
-        navigate("/browse");
       })
       .catch((error) => {
         console.log(error.message);
@@ -89,8 +87,10 @@ const Login = () => {
 
   return (
     <div className="relative h-screen w-screen">
+      <Header />
+
       <div className="absolute z-10 left-3 md:left-32">
-        <img src={logo} alt="logo" className="my-1 w-[160px] md:w-52" />
+        <img src={LOGO} alt="logo" className="my-1 w-[160px] md:w-52" />
       </div>
 
       <img

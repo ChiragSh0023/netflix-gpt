@@ -5,15 +5,11 @@ import user from "../assets/Images/user.png";
 import help from "../assets/Images/help.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 
 const DropdownMenu = () => {
-  const navigate = useNavigate();
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {});
   };
 
