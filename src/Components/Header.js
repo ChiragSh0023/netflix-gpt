@@ -40,8 +40,8 @@ const Header = () => {
   }
 
   return (
-    <div className="absolute w-full z-10">
-      <div className="flex gap-3 items-center w-full bg-gradient-to-b from-black h-[69px]">
+    <div className="sticky top-0 bg-black w-full z-30">
+      <div className="flex gap-3 items-center w-full h-[69px]">
         <div className="ml-9">
           <img src={LOGO} alt="logo" className="w-[130px]" />
         </div>

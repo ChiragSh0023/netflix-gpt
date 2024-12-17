@@ -3,7 +3,7 @@ import info from "../assets/Images/info.png";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="absolute pt-[15%] px-12 pb-12 font-metropolis text-white w-screen aspect-video bg-gradient-to-r from-black">
+    <div className="absolute pt-[12%] px-12 pb-12 font-metropolis text-white w-screen aspect-video z-10 bg-gradient-to-r from-black">
       <div className="w-[35%] py-4 flex flex-col gap-6">
         <h1 className="text-[43px] font-metropolis_bold leading-[52px]">
           {title}

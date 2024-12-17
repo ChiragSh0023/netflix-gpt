@@ -21,3 +21,11 @@
   src: url("./assets/Fonts/Metropolis/metropolis.extra-bold.otf")
     format("truetype");
 }
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

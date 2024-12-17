@@ -45,8 +45,6 @@ const Login = () => {
           setIsSignInForm(true);
         }, 2000);
 
-        // console.log(userCredential.user);
-
         return updateProfile(auth.currentUser, {
           displayName: name,
         });
