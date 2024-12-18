@@ -3,29 +3,27 @@ import useFetchMovies from "../hooks/useFetchMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import Footer from "./Footer";
+import GptSearch from "./MovieGpt";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
   useFetchMovies();
 
-  {
-    /*
-      Main Container
-        - Video in background
-        - Movie Details
-      
-      Secondary Container
-        - Movie Lists * n
-        - Movie Cards * n
-  */
-  }
+  const showGpt = useSelector((store) => store.gpt.showGpt);
 
   return (
     <div>
       <Header />
 
-      <MainContainer />
+      {showGpt ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
 
-      <SecondaryContainer />
+          <SecondaryContainer />
+        </>
+      )}
 
       <Footer />
     </div>
