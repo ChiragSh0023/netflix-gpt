@@ -13,7 +13,7 @@ const MovieList = memo(({ title, list }) => {
       </div>
       <div className="flex overflow-x-scroll gap-9 hide-scrollbar">
         {list.map((movie) => {
-          return <MovieCard key={movie.id} movie={movie} />;
+          return <MovieCard key={movie.id} movie={movie} imgWidth="w-40" />;
         })}
       </div>
     </div>

@@ -45,3 +45,12 @@ export const SUPPORTED_LANGUAGE = [
 
 export const GET_MOVIE_DETAILS =
   "https://api.themoviedb.org/3/search/movie?query=";
+
+export const INSTA_IMG_URL =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGzUnojngjDyf4CIZyQFdiplf0sNjGyRosSg&s";
+
+export const FB_IMG_URL =
+  "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/facebook-app-round-white-icon.png";
+
+export const YOUTUBE_IMG_URL =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oyuL3f9SA6tjm36ExJCAeSyGRkpyj8w2_w&s";

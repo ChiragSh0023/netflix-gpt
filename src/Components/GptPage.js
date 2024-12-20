@@ -4,12 +4,10 @@ import GptMovieList from "./GptMovieList";
 
 const GptPage = () => {
   return (
-    <div>
-      <img
-        className="absolute w-full h-full object-cover -z-10"
-        src={bgImg}
-        alt="bg-img"
-      />
+    <div
+      className="relative w-full min-h-screen bg-cover bg-fixed pb-12"
+      style={{ backgroundImage: `url(${bgImg})` }}
+    >
       <GptSearchBar />
       <GptMovieList />
     </div>

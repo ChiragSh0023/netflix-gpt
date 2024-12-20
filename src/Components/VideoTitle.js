@@ -1,7 +1,14 @@
 import play from "../assets/Images/play.png";
 import info from "../assets/Images/info.png";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const VideoTitle = ({ title, overview }) => {
+  const navigate = useNavigate();
+  const trailer = useSelector((store) => store.movies.trailer);
+  const playTrailer = () => {
+    navigate(`/watch?id=${trailer.id}`);
+  };
   return (
     <div className="absolute pt-[12%] px-12 pb-12 font-metropolis text-white w-screen aspect-video z-10 bg-gradient-to-r from-black">
       <div className="w-[35%] py-4 flex flex-col gap-6">
@@ -14,7 +21,10 @@ const VideoTitle = ({ title, overview }) => {
             <div>
               <img src={play} alt="play-icon" className="h-5" />
             </div>
-            <div className="text-black font-metropolis_semi_bold text-[17px]">
+            <div
+              className="text-black font-metropolis_semi_bold text-[17px]"
+              onClick={playTrailer}
+            >
               Play
             </div>
           </button>

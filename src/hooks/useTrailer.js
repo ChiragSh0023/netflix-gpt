@@ -1,29 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GET_TRAILER_URL, OPTIONS } from "../utils/constants";
-import { addTrailer } from "../utils/Redux Slices/moviesSlice";
-import { useDispatch } from "react-redux";
 
 const useTrailer = (id) => {
-  const dispatch = useDispatch();
-
+  const [trailer, setTrailer] = useState(null);
   const url = GET_TRAILER_URL + `${id}/videos`;
 
   const fetchTrailer = async () => {
     const data = await fetch(url, OPTIONS);
     const json = await data.json();
-    const trailer = extractKey(json?.results);
-    dispatch(addTrailer(trailer));
+    const trailerObj = extractKey(json?.results);
+    setTrailer(trailerObj);
   };
 
   const extractKey = (videos) => {
     let trailer = videos?.filter(
       (video) =>
-        (video?.name === "Official Trailer" ||
-          video?.name === "Final Trailer") &&
+        (video?.name.includes("Official Trailer") ||
+          video?.name.includes("Final Trailer")) &&
         video?.type === "Trailer"
     );
 
-    if (!trailer) {
+    if (trailer.length === 0) {
       trailer = videos?.filter((video) => video?.type === "Trailer");
     }
 
@@ -33,6 +30,8 @@ const useTrailer = (id) => {
   useEffect(() => {
     fetchTrailer();
   }, []);
+
+  return trailer;
 };
 
 export default useTrailer;

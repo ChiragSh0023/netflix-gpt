@@ -1,10 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useTrailer from "../hooks/useTrailer";
+import { useEffect } from "react";
+import { addTrailer } from "../utils/Redux Slices/moviesSlice";
 
 const VideoBackground = ({ id }) => {
-  useTrailer(id);
+  const dispatch = useDispatch();
 
-  const trailer = useSelector((store) => store.movies?.trailer);
+  const trailer = useTrailer(id);
+
+  useEffect(() => {
+    if (trailer) {
+      dispatch(addTrailer(trailer));
+    }
+  }, [trailer]);
 
   return (
     <div className="-mt-24">

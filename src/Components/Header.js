@@ -3,7 +3,7 @@ import { LOGO } from "../utils/constants";
 import { USER_ICON } from "../utils/constants";
 import downArrow from "../assets/Images/down-arrow.png";
 import DropdownMenu from "./DropdownMenu";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/Redux Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";

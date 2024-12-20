@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { lang } from "../utils/languageConstants";
 import { useRef } from "react";
-import { gptSuggestedMovie } from "../utils/Redux Slices/gptSlice";
+import {
+  gptSuggestedMovie,
+  setShowShimmer,
+} from "../utils/Redux Slices/gptSlice";
 import fetchMovieNames, { fetchMovieDetails } from "../utils/handleGptSearch";
 
 const GptSearchBar = () => {
@@ -9,20 +12,26 @@ const GptSearchBar = () => {
   const dispatch = useDispatch();
   const gptSearchInput = useRef(null);
 
-  const handleGPTSearch = async () => {
-    const searchText = gptSearchInput?.current.value;
-    if (!searchText) return;
+  const onGPTSearch = async () => {
+    dispatch(setShowShimmer(true));
+
+    const searchText = gptSearchInput?.current.value.trim();
 
     const gptSuggestedMovies = await fetchMovieNames(searchText);
-    const gptMovieResults = await fetchMovieDetails(gptSuggestedMovies);
-    console.log(gptSuggestedMovies);
-    console.log(gptMovieResults);
+    const isSuggestedMovieArray = Array.isArray(gptSuggestedMovies);
+    let gptMovieResults;
+    if (isSuggestedMovieArray) {
+      gptMovieResults = await fetchMovieDetails(gptSuggestedMovies);
+    }
+
     dispatch(
       gptSuggestedMovie({
         movieNames: gptSuggestedMovies,
-        movieResults: gptMovieResults,
+        movieResults: isSuggestedMovieArray ? gptMovieResults : null,
       })
     );
+
+    dispatch(setShowShimmer(false));
   };
 
   return (
@@ -39,7 +48,7 @@ const GptSearchBar = () => {
         />
         <button
           className="bg-red-600 text-white rounded-md p-3 m-4 hover:bg-red-700 col-span-3"
-          onClick={handleGPTSearch}
+          onClick={onGPTSearch}
         >
           {lang?.[language]?.search}
         </button>
