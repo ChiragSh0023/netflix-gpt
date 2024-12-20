@@ -60,7 +60,6 @@ const Login = () => {
         // Logged in
       })
       .catch((error) => {
-        console.log(error.message);
         setErrorMessage("Invalid email or password.");
       });
   };

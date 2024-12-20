@@ -4,7 +4,6 @@ import { MOVIE_IMG_URL } from "../../utils/constants";
 const MovieCard = ({ movie, imgWidth }) => {
   const navigate = useNavigate();
 
-  console.log(movie);
   const poster_path = movie?.poster_path;
   if (!poster_path) return null;
   const imageUrl = MOVIE_IMG_URL + poster_path;

@@ -62,11 +62,11 @@ const Header = () => {
   return (
     <div className="sticky top-0 bg-black w-full z-30">
       <div className="flex gap-3 items-center w-full h-[69px] font-metropolis">
-        <div className="ml-9">
+        <div className="ml:4 sm:ml-9">
           <img src={LOGO} alt="logo" className="w-[130px]" />
         </div>
 
-        <div className="ml-4">
+        <div className="ml-4 hidden lg:block">
           <ul className="text-[#acacbe] flex  text-sm">
             <li className="mr-5 cursor-pointer hover:text-white">Home</li>
             <li className="mr-5 cursor-pointer hover:text-white">TV Shows</li>
@@ -84,7 +84,7 @@ const Header = () => {
         <div className="flex items-center absolute right-[4%]">
           <div className="flex items-center">
             {showGpt && (
-              <div>
+              <div className="hidden sm:block">
                 <select
                   className="p-2 text-white mr-4 bg-gray-700 rounded-md cursor-pointer"
                   onChange={handleSelect}
@@ -118,7 +118,7 @@ const Header = () => {
             />
 
             {/** Dropdown Menu */}
-            <div className="absolute top-12 right-0 bg-black text-white text-[12px] rounded-sm opacity-0 scale-95 transform transition-all duration-300 w-[180px] border border-solid border-gray-300 group-hover:opacity-100 group-hover:scale-100">
+            <div className="absolute top-12 right-0 bg-black text-white text-[12px] rounded-sm hidden transform transition-all duration-300 w-[180px] border border-solid border-gray-300 group-hover:block">
               <DropdownMenu />
             </div>
           </div>

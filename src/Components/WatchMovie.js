@@ -52,8 +52,6 @@ const WatchMovie = () => {
     navigate("/browse");
   };
 
-  console.log(trailer);
-
   return (
     <>
       <div

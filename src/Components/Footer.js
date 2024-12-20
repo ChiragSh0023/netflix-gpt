@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <div className="flex bg-black justify-center">
         <div className="m-4 p-4 flex flex-col gap-5 font-metropolis text-[#808080] text-sm">
-          <div className="flex gap-4">
+          <div className="flex justify-between md:justify-normal gap-4">
             <div>
               <img src={INSTA_IMG_URL} className="w-5 cursor-pointer" />
             </div>
@@ -16,7 +16,8 @@ const Footer = () => {
               <img src={YOUTUBE_IMG_URL} className="w-5 cursor-pointer" />
             </div>
           </div>
-          <div className="flex gap-12">
+
+          <div className="gap-12 hidden md:flex">
             <div>
               <ul className="flex flex-col gap-3">
                 <li className="hover:underline cursor-pointer">
@@ -60,6 +61,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
           <div className="">© 1997-2024 Netflix, Inc.</div>
         </div>
       </div>
