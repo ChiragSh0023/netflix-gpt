@@ -60,7 +60,7 @@ const Header = () => {
         </div>
 
         <div className="ml-4">
-          <ul className="text-[#e5e5e5] flex  text-sm">
+          <ul className="text-[#acacbe] flex  text-sm">
             <li className="mr-5 cursor-pointer hover:text-white">Home</li>
             <li className="mr-5 cursor-pointer hover:text-white">TV Shows</li>
             <li className="mr-5 cursor-pointer hover:text-white">Movies</li>
@@ -79,7 +79,7 @@ const Header = () => {
             {showGpt && (
               <div>
                 <select
-                  className="p-2 text-white mr-4 bg-gray-700 rounded-md"
+                  className="p-2 text-white mr-4 bg-gray-700 rounded-md cursor-pointer"
                   onChange={handleSelect}
                 >
                   {SUPPORTED_LANGUAGE.map((language) => {
@@ -96,7 +96,7 @@ const Header = () => {
               </div>
             )}
             <button
-              className="bg-purple-600 text-white rounded-md mr-5 px-5 py-2 text-[16px] hover:bg-purple-700"
+              className="bg-purple-600 text-white rounded-md mr-5 px-5 py-2 text-[16px] hover:bg-purple-700 cursor-pointer"
               onClick={handleGptSearch}
             >
               {showGpt ? "Home Page" : "GPT Search"}

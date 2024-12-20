@@ -3,8 +3,8 @@ import useFetchMovies from "../hooks/useFetchMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import Footer from "./Footer";
-import GptSearch from "./MovieGpt";
 import { useSelector } from "react-redux";
+import GptPage from "./GptPage";
 
 const Browse = () => {
   useFetchMovies();
@@ -16,7 +16,7 @@ const Browse = () => {
       <Header />
 
       {showGpt ? (
-        <GptSearch />
+        <GptPage />
       ) : (
         <>
           <MainContainer />

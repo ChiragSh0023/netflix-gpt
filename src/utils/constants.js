@@ -22,15 +22,11 @@ export const OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MzQ0MWExNjM2Mzk1MDg2MGQ0YzhkY2ZlNDBjNzA0OCIsIm5iZiI6MTczNDMyODYyMi4zNTAwMDAxLCJzdWIiOiI2NzVmYzEyZWRlOGYzNGUwYjI1OGExZTMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.d3WzEwaOrXHUfE-7XxwbdGgshg6JaWHauTTjHPOqG84",
+    Authorization: process.env.REACT_APP_BEARER_TOKEN,
   },
 };
 
 export const GET_TRAILER_URL = "https://api.themoviedb.org/3/movie/";
-
-export const BG_IMG_URL =
-  "https://assets.nflxext.com/ffe/siteui/vlv3/729ce5c2-d831-436a-8c9d-f38fea0b99b3/web/PL-en-20241209-TRIFECTA-perspective_3c59e725-281f-469a-bdb5-824e6e66e792_large.jpg";
 
 export const SUPPORTED_LANGUAGE = [
   {
@@ -46,3 +42,6 @@ export const SUPPORTED_LANGUAGE = [
     name: "Japanese",
   },
 ];
+
+export const GET_MOVIE_DETAILS =
+  "https://api.themoviedb.org/3/search/movie?query=";

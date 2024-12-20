@@ -1,17 +1,19 @@
 import GptSearchBar from "./GptSearchBar";
-import { BG_IMG_URL } from "../utils/constants";
+import bgImg from "../assets/Images/gpt-bg.jpg";
+import GptMovieList from "./GptMovieList";
 
-const MovieGpt = () => {
+const GptPage = () => {
   return (
     <div>
       <img
         className="absolute w-full h-full object-cover -z-10"
-        src={BG_IMG_URL}
+        src={bgImg}
         alt="bg-img"
       />
       <GptSearchBar />
+      <GptMovieList />
     </div>
   );
 };
 
-export default MovieGpt;
+export default GptPage;

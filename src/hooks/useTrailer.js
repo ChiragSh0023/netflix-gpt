@@ -16,7 +16,7 @@ const useTrailer = (id) => {
   };
 
   const extractKey = (videos) => {
-    let trailer = videos.filter(
+    let trailer = videos?.filter(
       (video) =>
         (video?.name === "Official Trailer" ||
           video?.name === "Final Trailer") &&
@@ -24,7 +24,7 @@ const useTrailer = (id) => {
     );
 
     if (!trailer) {
-      trailer = videos.filter((video) => video?.type === "Trailer");
+      trailer = videos?.filter((video) => video?.type === "Trailer");
     }
 
     return trailer?.[0];
