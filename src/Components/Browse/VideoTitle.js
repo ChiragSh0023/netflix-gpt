@@ -1,5 +1,5 @@
-import play from "../assets/Images/play.png";
-import info from "../assets/Images/info.png";
+import play from "../../assets/Images/play.png";
+import info from "../../assets/Images/info.png";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import MovieCard from "./MovieCard";
+import MovieCard from "../Browse/MovieCard";
 import Shimmer from "./Shimmer";
 
 const GptMovieList = () => {

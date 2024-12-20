@@ -1,5 +1,5 @@
 import GptSearchBar from "./GptSearchBar";
-import bgImg from "../assets/Images/gpt-bg.jpg";
+import bgImg from "../../assets/Images/gpt-bg.jpg";
 import GptMovieList from "./GptMovieList";
 
 const GptPage = () => {

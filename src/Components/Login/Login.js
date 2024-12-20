@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { LOGO } from "../../utils/constants";
-import bgImg from "../assets/Images/netflix bg.png";
+import bgImg from "../../assets/Images/netflix bg.png";
 import { Link } from "react-router-dom";
 import { signInFormValidation } from "../../utils/validations";
 import {
