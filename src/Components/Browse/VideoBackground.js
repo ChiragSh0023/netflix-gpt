@@ -15,10 +15,10 @@ const VideoBackground = ({ id }) => {
   }, [trailer]);
 
   return (
-    <div className="-mt-24">
+    <div className="mt-0 lg:-mt-24">
       {trailer && (
         <iframe
-          className="w-screen aspect-video"
+          className="w-screen h-[50vh] lg:h-auto lg:aspect-video"
           src={
             "https://www.youtube.com/embed/" +
             trailer?.key +

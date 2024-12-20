@@ -15,7 +15,11 @@ const MovieCard = ({ movie, imgWidth }) => {
   return (
     <div className="grow-0 shrink-0 cursor-pointer" onClick={handleCardClick}>
       <div>
-        <img src={imageUrl} alt="img" className={`rounded-sm ${imgWidth}`} />
+        <img
+          src={imageUrl}
+          alt="img"
+          className={`rounded-sm w-32 sm:${imgWidth}`}
+        />
       </div>
     </div>
   );

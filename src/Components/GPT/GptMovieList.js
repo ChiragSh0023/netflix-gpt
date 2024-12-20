@@ -17,13 +17,13 @@ const GptMovieList = () => {
 
   return (
     <div className="mx-4 mt-6 p-8 pb-11 bg-black text-white bg-opacity-90 flex flex-col gap-9 rounded-sm">
-      <div className="font-metropolis_semi_bold text-2xl">
+      <div className="font-metropolis_semi_bold text-xl md:text-2xl">
         {gptMovies
           ? "Your movie matches are in! Let's dive into the reel magic!"
           : movieName}
       </div>
       {gptMovies && (
-        <div className="grid grid-cols-6 gap-y-9 justify-items-center">
+        <div className="grid grid-cols-3 gap-x-4 md:grid-cols-4 md:gap-x-0 lg:grid-cols-6 gap-y-9 justify-items-center shrink-0">
           {gptMovies?.map((movie) => (
             <MovieCard key={movie?.id} movie={movie} imgWidth="w-36" />
           ))}

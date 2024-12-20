@@ -4,16 +4,20 @@ import { GET_MOVIE_DETAILS, OPTIONS } from "../utils/constants";
 const fetchMovieNames = async (searchText) => {
   const prompt = `You are a Movie Recommendation System. Suggest 24 movie names based on the query: "${searchText}". Only provide the movie names in a single line, comma-separated, like this: Movie1, Movie2, Movie3, Movie4, .... If you don't understand, reply with the string "Hmm... That’s a tough one! Try searching for genres, actors, or popular movies to get started!"`;
 
-  const result = await model.generateContent(prompt);
-  const response = result?.response?.text();
+  try {
+    const result = await model.generateContent(prompt);
+    const response = result?.response?.text();
 
-  if (response.startsWith("Hmm")) {
-    return response;
+    if (response.startsWith("Hmm")) {
+      return response;
+    }
+
+    const suggestedMovies = response.split(", ").map((movie) => movie.trim());
+
+    return suggestedMovies;
+  } catch (error) {
+    return "Hmm... That’s a tough one! Try searching for genres, actors, or popular movies to get started!";
   }
-
-  const suggestedMovies = response.split(", ").map((movie) => movie.trim());
-
-  return suggestedMovies;
 };
 
 export const fetchMovieDetails = async (suggestedMovies) => {

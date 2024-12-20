@@ -75,7 +75,7 @@ const Header = () => {
               New & Popular
             </li>
             <li className="mr-5 cursor-pointer hover:text-white">My List</li>
-            <li className="mr-5 cursor-pointer hover:text-white">
+            <li className="hidden xl:inline-block mr-5 cursor-pointer hover:text-white">
               Browse by Languages
             </li>
           </ul>
