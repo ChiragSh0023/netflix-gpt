@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  showGpt: false,
+  showShimmer: false,
+  gptMovieNames: null,
+  gptMovieResults: null,
+};
+
 const gptSlice = createSlice({
   name: "gpt",
-  initialState: {
-    showGpt: false,
-    showShimmer: false,
-    gptMovieNames: null,
-    gptMovieResults: null,
-  },
+  initialState: initialState,
   reducers: {
     toggleShowGpt: (state) => {
       state.showGpt = !state.showGpt;
@@ -20,9 +22,14 @@ const gptSlice = createSlice({
     setShowShimmer: (state, action) => {
       state.showShimmer = action.payload;
     },
+    clearGptSlice: () => initialState,
   },
 });
 
-export const { toggleShowGpt, gptSuggestedMovie, setShowShimmer } =
-  gptSlice.actions;
+export const {
+  toggleShowGpt,
+  gptSuggestedMovie,
+  setShowShimmer,
+  clearGptSlice,
+} = gptSlice.actions;
 export default gptSlice.reducer;

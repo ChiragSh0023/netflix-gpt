@@ -3,12 +3,7 @@ import MovieList from "./MovieList";
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
-  {
-    /*
-    Movie List                * n
-      - Movie Cards * n
-     */
-  }
+
   return (
     <div className="bg-black">
       <div className="relative z-20 -mt-[200px]">

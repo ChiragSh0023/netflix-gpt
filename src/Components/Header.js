@@ -8,9 +8,13 @@ import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/Redux Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../utils/firebase";
-import { toggleShowGpt } from "../utils/Redux Slices/gptSlice";
-import { setLanguage } from "../utils/Redux Slices/configSlice";
+import { clearGptSlice, toggleShowGpt } from "../utils/Redux Slices/gptSlice";
+import {
+  clearConfigSlice,
+  setLanguage,
+} from "../utils/Redux Slices/configSlice";
 import { SUPPORTED_LANGUAGE } from "../utils/constants";
+import { clearMovieSlice } from "../utils/Redux Slices/moviesSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -30,6 +34,9 @@ const Header = () => {
         );
         navigate("/browse");
       } else {
+        dispatch(clearMovieSlice());
+        dispatch(clearGptSlice());
+        dispatch(clearConfigSlice());
         dispatch(removeUser());
         navigate("/");
       }
