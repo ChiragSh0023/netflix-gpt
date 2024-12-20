@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { lang } from "../utils/languageConstants";
+import { lang } from "../../utils/languageConstants";
 import { useRef } from "react";
 import {
   gptSuggestedMovie,
   setShowShimmer,
-} from "../utils/Redux Slices/gptSlice";
-import fetchMovieNames, { fetchMovieDetails } from "../utils/handleGptSearch";
+} from "../../utils/Redux Slices/gptSlice";
+import fetchMovieNames, {
+  fetchMovieDetails,
+} from "../../utils/handleGptSearch";
 
 const GptSearchBar = () => {
   const language = useSelector((store) => store.config.language);

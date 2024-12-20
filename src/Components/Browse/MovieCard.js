@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { MOVIE_IMG_URL } from "../utils/constants";
+import { MOVIE_IMG_URL } from "../../utils/constants";
 
 const MovieCard = ({ movie, imgWidth }) => {
   const navigate = useNavigate();

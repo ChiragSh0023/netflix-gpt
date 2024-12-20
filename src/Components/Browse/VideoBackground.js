@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import useTrailer from "../hooks/useTrailer";
+import useTrailer from "../../hooks/useTrailer";
 import { useEffect } from "react";
-import { addTrailer } from "../utils/Redux Slices/moviesSlice";
+import { addTrailer } from "../../utils/Redux Slices/moviesSlice";
 
 const VideoBackground = ({ id }) => {
   const dispatch = useDispatch();

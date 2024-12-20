@@ -1,10 +1,10 @@
-import Header from "./Header";
-import useFetchMovies from "../hooks/useFetchMovies";
-import MainContainer from "./MainContainer";
+import Header from "../Header";
+import useFetchMovies from "../../hooks/useFetchMovies";
+import MainContainer from "../MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import { useSelector } from "react-redux";
-import GptPage from "./GptPage";
+import GptPage from "../GPT/GptPage";
 
 const Browse = () => {
   useFetchMovies();
