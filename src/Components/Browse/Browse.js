@@ -5,11 +5,20 @@ import SecondaryContainer from "./SecondaryContainer";
 import Footer from "../Footer";
 import { useSelector } from "react-redux";
 import GptPage from "../GPT/GptPage";
+import ErrorComponent from "../ErrorComponent";
 
 const Browse = () => {
   useFetchMovies();
 
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
+
   const showGpt = useSelector((store) => store.gpt.showGpt);
+
+  if (!nowPlayingMovies) {
+    return <ErrorComponent />;
+  }
 
   return (
     <div>

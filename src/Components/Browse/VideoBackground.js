@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import useTrailer from "../../hooks/useTrailer";
 import { useEffect } from "react";
 import { addTrailer } from "../../utils/Redux Slices/moviesSlice";

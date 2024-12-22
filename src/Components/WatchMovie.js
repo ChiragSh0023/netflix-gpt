@@ -58,7 +58,7 @@ const WatchMovie = () => {
         className="absolute z-10 mt-[1%] ml-[1%] cursor-pointer"
         onClick={takeToBrowsePage}
       >
-        <img src={backIcon} className="w-10 h-10" />
+        <img src={backIcon} className="w-10 h-10" alt="back-icon" />
       </div>
       <div className="">
         <iframe

@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   NOW_PLAYING_URL,
   OPTIONS,
@@ -16,40 +16,62 @@ import { useEffect } from "react";
 
 const useFetchMovies = () => {
   const dispatch = useDispatch();
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
+  const popularMovies = useSelector((store) => store.movies.popularMovies);
+  const topRatedMovies = useSelector((store) => store.movies.topRatedMovies);
+  const upcomingMovies = useSelector((store) => store.movies.upcomingMovies);
 
   const getNowPlaying = async () => {
-    const data = await fetch(NOW_PLAYING_URL, OPTIONS);
-    const json = await data.json();
+    try {
+      const data = await fetch(NOW_PLAYING_URL, OPTIONS);
+      const json = await data.json();
 
-    dispatch(addNowPlayingMovies(json?.results));
+      dispatch(addNowPlayingMovies(json?.results));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const getPopular = async () => {
-    const data = await fetch(POPULAR_URL, OPTIONS);
-    const json = await data.json();
+    try {
+      const data = await fetch(POPULAR_URL, OPTIONS);
+      const json = await data.json();
 
-    dispatch(addPopularMovies(json?.results));
+      dispatch(addPopularMovies(json?.results));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const getTopRated = async () => {
-    const data = await fetch(TOP_RATED_URL, OPTIONS);
-    const json = await data.json();
+    try {
+      const data = await fetch(TOP_RATED_URL, OPTIONS);
+      const json = await data.json();
 
-    dispatch(addTopRatedMovies(json?.results));
+      dispatch(addTopRatedMovies(json?.results));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const getUpcoming = async () => {
-    const data = await fetch(UPCOMING_URL, OPTIONS);
-    const json = await data.json();
+    try {
+      const data = await fetch(UPCOMING_URL, OPTIONS);
+      const json = await data.json();
 
-    dispatch(addUpcomingMovies(json?.results));
+      dispatch(addUpcomingMovies(json?.results));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
-    getNowPlaying();
-    getPopular();
-    getTopRated();
-    getUpcoming();
+    !nowPlayingMovies && getNowPlaying();
+    !popularMovies && getPopular();
+    !topRatedMovies && getTopRated();
+    !upcomingMovies && getUpcoming();
   }, []);
 };
 

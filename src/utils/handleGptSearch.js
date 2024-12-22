@@ -33,10 +33,14 @@ export const fetchMovieDetails = async (suggestedMovies) => {
 };
 
 export const fetchMovieTMDB = async (movie) => {
-  const url = GET_MOVIE_DETAILS + movie;
-  const data = await fetch(url, OPTIONS);
-  const json = await data.json();
-  return json?.results?.[0];
+  try {
+    const url = GET_MOVIE_DETAILS + movie;
+    const data = await fetch(url, OPTIONS);
+    const json = await data.json();
+    return json?.results?.[0];
+  } catch (err) {
+    return null;
+  }
 };
 
 export default fetchMovieNames;

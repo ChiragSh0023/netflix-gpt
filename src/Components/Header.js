@@ -3,7 +3,7 @@ import { LOGO } from "../utils/constants";
 import { USER_ICON } from "../utils/constants";
 import downArrow from "../assets/Images/down-arrow.png";
 import DropdownMenu from "./DropdownMenu";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/Redux Slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -109,6 +109,7 @@ const Header = () => {
               {showGpt ? "Home Page" : "GPT Search"}
             </button>
           </div>
+
           <div className="flex items-center gap-3 group relative cursor-pointer">
             <img src={USER_ICON} alt="user-icon" />
             <img
@@ -118,7 +119,7 @@ const Header = () => {
             />
 
             {/** Dropdown Menu */}
-            <div className="absolute top-12 right-0 bg-black text-white text-[12px] rounded-sm hidden transform transition-all duration-300 w-[180px] border border-solid border-gray-300 group-hover:block">
+            <div className="absolute top-12 right-0 bg-black text-white text-[12px] rounded-sm transform transition-all duration-300 w-[180px] border border-solid border-gray-300 opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100">
               <DropdownMenu />
             </div>
           </div>

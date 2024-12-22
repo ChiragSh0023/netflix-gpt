@@ -7,13 +7,25 @@ const Footer = () => {
         <div className="m-4 p-4 flex flex-col gap-5 font-metropolis text-[#808080] text-sm">
           <div className="flex justify-between md:justify-normal gap-4">
             <div>
-              <img src={INSTA_IMG_URL} className="w-5 cursor-pointer" />
+              <img
+                src={INSTA_IMG_URL}
+                className="w-5 cursor-pointer"
+                alt="insta-img"
+              />
             </div>
             <div>
-              <img src={FB_IMG_URL} className="w-5 cursor-pointer" />
+              <img
+                src={FB_IMG_URL}
+                className="w-5 cursor-pointer"
+                alt="fb-img"
+              />
             </div>
             <div>
-              <img src={YOUTUBE_IMG_URL} className="w-5 cursor-pointer" />
+              <img
+                src={YOUTUBE_IMG_URL}
+                className="w-5 cursor-pointer"
+                alt="youtube-img"
+              />
             </div>
           </div>
 
