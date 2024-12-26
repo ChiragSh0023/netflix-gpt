@@ -6,6 +6,8 @@ const initialState = {
   popularMovies: null,
   topRatedMovies: null,
   upcomingMovies: null,
+  moviesFetchedStatus: false,
+  moviesFetchError: false,
 };
 
 const moviesSlice = createSlice({
@@ -27,6 +29,12 @@ const moviesSlice = createSlice({
     addUpcomingMovies: (state, action) => {
       state.upcomingMovies = action.payload;
     },
+    setMoviesFetched: (state, action) => {
+      state.moviesFetchedStatus = action.payload;
+    },
+    setMoviesFetchError: (state, action) => {
+      state.moviesFetchError = action.payload;
+    },
     clearMovieSlice: () => initialState,
   },
 });
@@ -37,6 +45,8 @@ export const {
   addPopularMovies,
   addTopRatedMovies,
   addUpcomingMovies,
+  setMoviesFetched,
+  setMoviesFetchError,
   clearMovieSlice,
 } = moviesSlice.actions;
 

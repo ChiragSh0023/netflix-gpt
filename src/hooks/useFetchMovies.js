@@ -11,6 +11,8 @@ import {
   addPopularMovies,
   addTopRatedMovies,
   addUpcomingMovies,
+  setMoviesFetched,
+  setMoviesFetchError,
 } from "../utils/Redux Slices/moviesSlice";
 import { useEffect } from "react";
 
@@ -28,8 +30,10 @@ const useFetchMovies = () => {
       const data = await fetch(NOW_PLAYING_URL, OPTIONS);
       const json = await data.json();
 
+      dispatch(setMoviesFetched(true));
       dispatch(addNowPlayingMovies(json?.results));
     } catch (err) {
+      dispatch(setMoviesFetchError(true));
       console.log(err);
     }
   };
@@ -41,6 +45,7 @@ const useFetchMovies = () => {
 
       dispatch(addPopularMovies(json?.results));
     } catch (err) {
+      dispatch(setMoviesFetchError(true));
       console.log(err);
     }
   };
@@ -52,6 +57,7 @@ const useFetchMovies = () => {
 
       dispatch(addTopRatedMovies(json?.results));
     } catch (err) {
+      dispatch(setMoviesFetchError(true));
       console.log(err);
     }
   };
@@ -63,6 +69,7 @@ const useFetchMovies = () => {
 
       dispatch(addUpcomingMovies(json?.results));
     } catch (err) {
+      dispatch(setMoviesFetchError(true));
       console.log(err);
     }
   };

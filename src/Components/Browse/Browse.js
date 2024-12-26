@@ -6,17 +6,25 @@ import Footer from "../Footer";
 import { useSelector } from "react-redux";
 import GptPage from "../GPT/GptPage";
 import ErrorComponent from "../ErrorComponent";
+import LoadingComponent from "../LoadingComponent";
 
 const Browse = () => {
   useFetchMovies();
 
-  const nowPlayingMovies = useSelector(
-    (store) => store.movies.nowPlayingMovies
+  const moviesFetchedStatus = useSelector(
+    (store) => store.movies.moviesFetchedStatus
+  );
+  const moviesFetchError = useSelector(
+    (store) => store.movies.moviesFetchError
   );
 
   const showGpt = useSelector((store) => store.gpt.showGpt);
 
-  if (!nowPlayingMovies) {
+  if (!moviesFetchedStatus && !moviesFetchError) {
+    return <LoadingComponent />;
+  }
+
+  if (!moviesFetchedStatus && moviesFetchError) {
     return <ErrorComponent />;
   }
 

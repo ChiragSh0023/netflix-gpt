@@ -15,6 +15,8 @@ import {
 } from "../utils/Redux Slices/configSlice";
 import { SUPPORTED_LANGUAGE } from "../utils/constants";
 import { clearMovieSlice } from "../utils/Redux Slices/moviesSlice";
+import signOutIcon from "../assets/Images/logout.png";
+import { handleSignOut } from "../utils/firebase";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -115,11 +117,17 @@ const Header = () => {
             <img
               src={downArrow}
               alt="down-icon"
-              className="h-[10px] transform transition-transform duration-500 group-hover:rotate-180"
+              className="hidden md:block h-[10px] transform transition-transform duration-500 group-hover:rotate-180"
+            />
+            <img
+              src={signOutIcon}
+              alt="sing-out"
+              className="md:hidden h-[17px] cursor-pointer"
+              onClick={handleSignOut}
             />
 
             {/** Dropdown Menu */}
-            <div className="absolute top-12 right-0 bg-black text-white text-[12px] rounded-sm transform transition-all duration-300 w-[180px] border border-solid border-gray-300 opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100">
+            <div className="hidden md:block absolute top-12 right-0 bg-black text-white text-[12px] rounded-sm transform transition-all duration-300 w-[180px] border border-solid border-gray-300 opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100">
               <DropdownMenu />
             </div>
           </div>

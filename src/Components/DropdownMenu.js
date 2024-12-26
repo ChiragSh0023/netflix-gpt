@@ -3,16 +3,9 @@ import pencil from "../assets/Images/pencil.png";
 import transfer from "../assets/Images/transfer.png";
 import user from "../assets/Images/user.png";
 import help from "../assets/Images/help.png";
-import { signOut } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { handleSignOut } from "../utils/firebase";
 
 const DropdownMenu = () => {
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {})
-      .catch((error) => {});
-  };
-
   return (
     <div className="p-5 flex flex-col gap-6">
       <div className="flex items-center gap-3 hover:underline">
